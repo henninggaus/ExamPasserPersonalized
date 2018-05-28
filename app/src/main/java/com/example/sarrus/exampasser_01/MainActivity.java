@@ -14,6 +14,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -186,6 +187,11 @@ public class MainActivity extends AppCompatActivity {
 
     //Spiel verwalten
     public void gleichungGenerieren(int groessteZahl){
+        if(groessteZahl == 0){
+            groessteZahl = 10;
+            Log.w("Zufallszahlengenerator", "Die Funktion 'gleichungGenerieren' wurde mit Parameter = 0 aufgerufen.\n" +
+                    "Der Zufallszahlengenerator hätte die App zum Absturz gebracht. Unbedingt prüfen!");
+        }
         do{
             //Addition oder Subtration wird ausgewählt
             int rechenart = rand.nextInt(4)+1;
